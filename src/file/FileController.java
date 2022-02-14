@@ -3,7 +3,6 @@ package file;
 import country.Country;
 import input.InputHelper;
 import menu.MenuConsole;
-
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -45,14 +44,16 @@ public class FileController {
         Map<String, List<Double>> data = new HashMap<>();
         try {
             Scanner inFile = new Scanner(new FileReader("data.txt"));
-            inFile.nextLine(); inFile.nextLine(); inFile.nextLine();
-            while (inFile.hasNext()) {
-                String aux = inFile.nextLine().trim();
-                Matcher mm = Pattern.compile("\\d{1,3}\\.?\\d{0,5}").matcher(aux.replace(",", "."));
-                String continent = aux.replaceAll("[^a-zA-Z]", " ").trim();
-                List<Double> list = new ArrayList<>();
-                while (mm.find()) list.add(Double.valueOf(mm.group()));
-                data.put(continent, list);
+            if(new File("data.txt").length() == 0){
+                inFile.nextLine(); inFile.nextLine(); inFile.nextLine();
+                while (inFile.hasNext()) {
+                    String aux = inFile.nextLine().trim();
+                    Matcher mm = Pattern.compile("\\d{1,3}\\.?\\d{0,5}").matcher(aux.replace(",", "."));
+                    String continent = aux.replaceAll("[^a-zA-Z]", " ").trim();
+                    List<Double> list = new ArrayList<>();
+                    while (mm.find()) list.add(Double.valueOf(mm.group()));
+                    data.put(continent, list);
+                }
             }
             inFile.close();
         } catch (FileNotFoundException e) {
