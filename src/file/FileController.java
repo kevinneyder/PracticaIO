@@ -44,7 +44,7 @@ public class FileController {
         Map<String, List<Double>> data = new HashMap<>();
         try {
             Scanner inFile = new Scanner(new FileReader("data.txt"));
-            if(new File("data.txt").length() == 0){
+            if(new File("data.txt").length() != 0){
                 inFile.nextLine(); inFile.nextLine(); inFile.nextLine();
                 while (inFile.hasNext()) {
                     String aux = inFile.nextLine().trim();
@@ -58,6 +58,8 @@ public class FileController {
             inFile.close();
         } catch (FileNotFoundException e) {
             System.out.println("Error, file not found");
+        } catch (Exception e){
+            System.out.println("Data not exits");
         }
         return data;
     }
