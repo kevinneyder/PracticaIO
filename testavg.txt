@@ -1,0 +1,24 @@
+Student Name: Sudamerica
+Test scores:    12    43 
+Average test score: 18,000000 
+
+Student Name: NorAmerica
+Test scores:    45    53 
+Average test score: 32,000000 
+
+Student Name: Asia
+Test scores:    12    32 
+Average test score: 14,000000 
+
+Student Name: Africa
+Test scores:    54    77 
+Average test score: 43,000000 
+
+Student Name: Europa
+Test scores:    43    66 
+Average test score: 36,000000 
+
+Student Name: Oceania
+Test scores:    10    32 
+Average test score: 14,000000 
+
